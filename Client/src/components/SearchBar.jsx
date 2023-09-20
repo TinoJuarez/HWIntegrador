@@ -1,19 +1,32 @@
-import styles from './Search.module.css'
-import { useState } from "react"
+import React, { useState } from 'react';
+import styles from './Search.module.css';
 
+const SearchBar = ({ onSearch }) => {
+  const [id, setId] = useState('');
 
-export default function SearchBar({onSearch}) {//modificar aca
-      const [id, setId] = useState('');
-      const handleChange = (event) => {
-         setId(event.target.value)
-      };
+  const handleChange = (event) => {
+    setId(event.target.value);
+  };
 
-   return (
-      <div className={styles.div}>
+  const handleSearch = () => {
+    onSearch(id);
+  };
 
-               <input className={styles.input} type='search' onChange={handleChange} value={id}/>
-               <button className={styles.button} onClick={ () => {onSearch(id)} }>Agregar</button> 
+  return (
+    <div className={styles.div}>
+      <input
+        className={styles.input}
+        type='search'
+        placeholder='Buscar por ID'
+        onChange={handleChange}
+        value={id}
+      />
+      <button className={styles.button} onClick={handleSearch}>
+        Agregar
+      </button>
+    </div>
+  );
+};
 
-      </div>
-   );
-}
+export default SearchBar;
+

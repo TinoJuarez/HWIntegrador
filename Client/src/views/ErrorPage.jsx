@@ -1,11 +1,13 @@
-import errorImg from '../assets/error-4044.jpg'
+import React from 'react';
+import errorImg from '../assets/error-4044.jpg';
 
- const ErrorPage = () =>{
+const ErrorPage = () => {
     return (
         <div>
-            <img src={errorImg} alt="error 404" />
+            <h1>Error 404 - Página no encontrada</h1>
+            <img src={errorImg} alt="Error 404" />
         </div>
-    )
-} 
+    );
+};
 
 export default ErrorPage;
